@@ -9,6 +9,16 @@ use Carbon\Carbon;
 
 class ReservationController extends Controller
 {
+    public function index(){
+
+        $reservations = Reservation::whereDay('date',Carbon::now())->get();
+
+        return response()->json([
+            'reservations' => $reservations
+        ]);
+    }
+
+
     public function store(ReservationRequest $request){
         
         Reservation::create([

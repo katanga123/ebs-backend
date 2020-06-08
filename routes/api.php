@@ -25,6 +25,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function(){
 
+    // Auth
+    Route::post('login', 'Auth\AuthController@login');
+    Route::post('register', 'Auth\AuthController@register');
+    // End Auth
 
     Route::get('status', 'StatusController@index');
     Route::post('reservation', 'ReservationController@store');
@@ -32,7 +36,7 @@ Route::prefix('v1')->group(function(){
     Route::middleware('auth:api')->group(function () {
         
         // Route::resource('status', 'StatusController');
-        // Route::resource('reservations', 'ReservationController')->except(['store']);
+        Route::get('reservation', 'ReservationController@index');
 
     });
 
