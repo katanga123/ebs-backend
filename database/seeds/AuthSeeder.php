@@ -17,6 +17,6 @@ class AuthSeeder extends Seeder
             'password' => bcrypt('admin'),
         ];
 
-        DB::table('user')->insert($user);
+        DB::table('users')->insert($user);
     }
 }
