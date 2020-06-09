@@ -11,7 +11,7 @@ class ReservationController extends Controller
 {
     public function index(){
 
-        $reservations = Reservation::whereDay('date',Carbon::now())->get();
+        $reservations = Reservation::all();
 
         return response()->json([
             'reservations' => $reservations
@@ -37,4 +37,18 @@ class ReservationController extends Controller
         ], 201);
 
     }
+
+    public function update(ReservationRequest $request,Reservation $reservation){
+        
+        $reservation->update([
+            "date"=> $request->date,
+            "time"=> $request->time,
+            "attendees"=> $request->attendees,
+            "status_id"=> $request->status_id
+        ]);
+
+        return response()->json(['updated' => true], 201);
+    }
+
+
 }

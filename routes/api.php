@@ -37,6 +37,7 @@ Route::prefix('v1')->group(function(){
         
         // Route::resource('status', 'StatusController');
         Route::get('reservation', 'ReservationController@index');
+        Route::put('reservation/{reservation}', 'ReservationController@update');
 
     });
 

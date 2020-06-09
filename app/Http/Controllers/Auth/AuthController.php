@@ -41,7 +41,7 @@ class AuthController extends Controller
 
         $success['token'] = $user->createToken(ENV('APP_NAME').' Register')->accessToken;
 
-        return response()->json(['success'=>$success], 200); 
+        return response()->json(['success'=>$success], 200);
     
     }
 
